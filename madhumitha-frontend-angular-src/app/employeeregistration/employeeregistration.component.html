@@ -1,0 +1,24 @@
+<div class="employee-registration-container">
+    <h2>Employee Registration</h2>
+    <form (ngSubmit)="registerEmployee()">
+      <label for="employeeId">Employee ID:</label>
+      <input type="text" id="employeeId" [(ngModel)]="employee.employeeId" name="employeeId" required>
+      <label for="employeeName">Employee Name:</label>
+      <input type="text" id="employeeName" [(ngModel)]="employee.employeeName" name="employeeName" required>
+      <label for="employeePhone">Employee Phone:</label>
+      <input type="text" id="employeePhone" [(ngModel)]="employee.employeePhone" name="employeePhone" required>
+      <label for="employeeDesignation">Employee Designation:</label>
+      <input type="text" id="employeeDesignation" [(ngModel)]="employee.employeeDesignation" name="employeeDesignation" required>
+      <h3>Addresses</h3>
+      <div *ngFor="let address of employee.addresses; let i = index" class="address-container">
+        <label for="city">City:</label>
+        <input type="text" id="city" [(ngModel)]="address.city" name="city{{i}}" required>
+        <label for="state">State:</label>
+        <input type="text" id="state" [(ngModel)]="address.state" name="state{{i}}" required>
+        <button type="button" (click)="removeAddress(i)">Remove</button>
+      </div>
+      <button type="button" (click)="addAddress()">Add Address</button>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+  
